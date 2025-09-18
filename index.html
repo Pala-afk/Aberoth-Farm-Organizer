@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aberoth Farm Organizer</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="header" id="header">
+            <h1>Aberoth Farm Organizer v1.0</h1>
+            <div class="header-buttons">
+                <button id="exportBtn">📊 Planilha</button>
+                <button id="addBossBtn">➕ Adicionar Chefe/Realm</button>
+                <button id="configBtn">⚙️ Configurações</button>
+                <button id="minimalistToggle">🎯 Modo Minimalista</button>
+            </div>
+        </header>
+
+        <!-- Summary -->
+        <section class="summary" id="summary">
+            <h2>Resumo do Dia</h2>
+            <div class="summary-stats">
+                <div class="stat">
+                    <span class="stat-label">Total de Mortes:</span>
+                    <span class="stat-value" id="totalDeaths">0</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-label">Chefes Ativos:</span>
+                    <span class="stat-value" id="activeBosses">0</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Boss Cards Container -->
+        <main class="boss-container" id="bossContainer">
+            <h2>Meus Layouts Salvos</h2>
+            <div class="boss-grid" id="bossGrid">
+                <!-- Boss cards will be dynamically generated here -->
+            </div>
+        </main>
+
+        <!-- History Section -->
+        <section class="history" id="history">
+            <h2>Últimas Atualizações</h2>
+            <div class="history-table">
+                <table id="historyTable">
+                    <thead>
+                        <tr>
+                            <th>Horário</th>
+                            <th>Chefe</th>
+                            <th>Realm</th>
+                            <th>Mortes</th>
+                        </tr>
+                    </thead>
+                    <tbody id="historyBody">
+                        <!-- History entries will be dynamically generated here -->
+                    </tbody>
+                </table>
+            </div>
+            <button id="viewFullHistoryBtn">Ver histórico completo</button>
+        </section>
+    </div>
+
+    <!-- Add Boss Modal -->
+    <div class="modal" id="addBossModal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Adicionar Chefe/Realm</h2>
+            <form id="addBossForm">
+                <div class="form-group">
+                    <label for="bossName">Nome do Chefe:</label>
+                    <select id="bossName" required>
+                        <option value="">Selecione um chefe</option>
+                        <option value="Goblin King">Goblin King</option>
+                        <option value="Spider Queen">Spider Queen</option>
+                        <option value="Ogre Lord">Ogre Lord</option>
+                        <option value="Dragon">Dragon</option>
+                        <option value="Lich">Lich</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="realmName">Nome do Realm:</label>
+                    <select id="realmName" required>
+                        <option value="">Selecione um realm</option>
+                        <option value="Realm 1">Realm 1</option>
+                        <option value="Realm 2">Realm 2</option>
+                        <option value="Realm 3">Realm 3</option>
+                        <option value="Realm 4">Realm 4</option>
+                        <option value="Realm 5">Realm 5</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="respawnTime">Tempo de Respawn (minutos):</label>
+                    <input type="number" id="respawnTime" min="1" max="1440" value="30" required>
+                </div>
+                <button type="submit">Adicionar</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
